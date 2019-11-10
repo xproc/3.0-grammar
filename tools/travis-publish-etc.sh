@@ -5,8 +5,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
     exit
 fi
 
-if [ "$TRAVIS_REPO_SLUG" == "$GIT_PUB_REPO" ]; then
-    echo "Preparing to publish..."
+if [ "$GIT_PUB_REPO" != "" ]; then
+    echo "Preparing to publish to $GIT_PUB_REPO..."
     cd $HOME
     git config --global user.email ${GIT_EMAIL}
     git config --global user.name ${GIT_NAME}
@@ -37,6 +37,6 @@ if [ "$TRAVIS_REPO_SLUG" == "$GIT_PUB_REPO" ]; then
 
         echo -e "Published specification to gh-pages.\n"
     else
-        echo -e "Publication cannot be performed on pull requests.\n"
+        echo -e "Publication skipped; no token.\n"
     fi
 fi
