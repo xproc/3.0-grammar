@@ -62,10 +62,10 @@ import de.undercouch.gradle.tasks.download.Download
 
 task schemas(dependsOn: ["xproc_schemas"], type: Copy) {
   from "build/"
-  into "build/dist/xproc/"
+  into "build/dist/etc/"
   include "*.rn?"
   doFirst {
-    mkdir("build/dist/xproc")
+    mkdir("build/dist/etc")
   }
 }
 
@@ -88,11 +88,11 @@ task xproc_library(type: XMLCalabashTask) {
   inputs.file "tools/xpl/make-library.xpl"
   inputs.file "tools/xsl/make-library.xsl"
   input("source", "build/steps/library.xml")
-  output("result", "build/dist/xproc/library.xpl")
+  output("result", "build/dist/etc/library.xpl")
   param("libraries", steps)
   pipeline "tools/xpl/make-library.xpl"
   doFirst {
-    mkdir("build/dist/xproc")
+    mkdir("build/dist/etc")
   }
 }
 
