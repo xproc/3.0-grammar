@@ -782,7 +782,7 @@ VocabFile =
       attribute name { text },
       xmlbase.attr,
       file-info.attributes*,
-      content-types.attr?,
+      content-type.attr?,
       empty
    }
 [
