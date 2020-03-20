@@ -916,6 +916,7 @@ VocabEntry =
       attribute comment { text }?,
       attribute method { text }?,
       attribute level { text }?,
+      content-type.attr?,
       attribute (* - (local:* | p:* | c:*)) { text }*,
       AnyElement*
    }
