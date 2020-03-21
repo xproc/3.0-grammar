@@ -740,11 +740,11 @@ Step-directory-list =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute path { xsd:anyURI }?,
-    attribute detailed { xsd:boolean }?,
-    attribute max-depth { xsd:string? }?,
-    attribute include-filter { xsd:string }?,
-    attribute exclude-filter { xsd:string }?,
+    attribute path { avt.datatype }?,
+    attribute detailed { avt.datatype }?,
+    attribute max-depth { avt.datatype }?,
+    attribute include-filter { avt.datatype }?,
+    attribute exclude-filter { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-copy =
@@ -753,9 +753,9 @@ Step-file-copy =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute target { xsd:anyURI }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute target { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-delete =
@@ -764,9 +764,9 @@ Step-file-delete =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute recursive { xsd:boolean }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute recursive { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-info =
@@ -775,8 +775,8 @@ Step-file-info =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-mkdir =
@@ -785,8 +785,8 @@ Step-file-mkdir =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-move =
@@ -795,9 +795,9 @@ Step-file-move =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute target { xsd:anyURI }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute target { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-create-tempfile =
@@ -806,11 +806,11 @@ Step-file-create-tempfile =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI? }?,
-    attribute suffix { xsd:string? }?,
-    attribute prefix { xsd:string? }?,
-    attribute delete-on-exit { xsd:boolean }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute suffix { avt.datatype }?,
+    attribute prefix { avt.datatype }?,
+    attribute delete-on-exit { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-file-touch =
@@ -819,9 +819,9 @@ Step-file-touch =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute timestamp { xsd:dateTime? }?,
-    attribute fail-on-error { xsd:boolean }?,
+    attribute href { avt.datatype }?,
+    attribute timestamp { avt.datatype }?,
+    attribute fail-on-error { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-os-info =
@@ -838,18 +838,18 @@ Step-os-exec =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute command { xsd:string }?,
-    attribute args { xsd:string }?,
-    attribute cwd { xsd:string? }?,
-    attribute source-is-xml { xsd:boolean }?,
-    attribute result-is-xml { xsd:boolean }?,
-    attribute wrap-result-lines { xsd:boolean }?,
-    attribute errors-is-xml { xsd:boolean }?,
-    attribute wrap-error-lines { xsd:boolean }?,
-    attribute path-separator { xsd:string? }?,
-    attribute failure-threshold { xsd:integer? }?,
-    attribute arg-separator { xsd:string }?,
-    attribute serialization { xsd:string }?,
+    attribute command { avt.datatype }?,
+    attribute args { avt.datatype }?,
+    attribute cwd { avt.datatype }?,
+    attribute source-is-xml { avt.datatype }?,
+    attribute result-is-xml { avt.datatype }?,
+    attribute wrap-result-lines { avt.datatype }?,
+    attribute errors-is-xml { avt.datatype }?,
+    attribute wrap-error-lines { avt.datatype }?,
+    attribute path-separator { avt.datatype }?,
+    attribute failure-threshold { avt.datatype }?,
+    attribute arg-separator { avt.datatype }?,
+    attribute serialization { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-css-formatter =
@@ -858,8 +858,8 @@ Step-css-formatter =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute content-type { xsd:string? }?,
+    attribute parameters { avt.datatype }?,
+    attribute content-type { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-xsl-formatter =
@@ -868,8 +868,8 @@ Step-xsl-formatter =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute content-type { xsd:string? }?,
+    attribute parameters { avt.datatype }?,
+    attribute content-type { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-run =
@@ -886,7 +886,7 @@ Step-markdown-to-html =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-validate-with-nvdl =
@@ -895,9 +895,9 @@ Step-validate-with-nvdl =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute assert-valid { xsd:boolean }?,
-    attribute report-format { xsd:string }?,
-    attribute parameters { xsd:string }?,
+    attribute assert-valid { avt.datatype }?,
+    attribute report-format { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-validate-with-relax-ng =
@@ -906,11 +906,11 @@ Step-validate-with-relax-ng =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute dtd-attribute-values { xsd:boolean }?,
-    attribute dtd-id-idref-warnings { xsd:boolean }?,
-    attribute assert-valid { xsd:boolean }?,
-    attribute report-format { xsd:string }?,
-    attribute parameters { xsd:string }?,
+    attribute dtd-attribute-values { avt.datatype }?,
+    attribute dtd-id-idref-warnings { avt.datatype }?,
+    attribute assert-valid { avt.datatype }?,
+    attribute report-format { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-validate-with-schematron =
@@ -919,10 +919,10 @@ Step-validate-with-schematron =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute phase { xsd:string }?,
-    attribute assert-valid { xsd:boolean }?,
-    attribute report-format { xsd:string }?,
+    attribute parameters { avt.datatype }?,
+    attribute phase { avt.datatype }?,
+    attribute assert-valid { avt.datatype }?,
+    attribute report-format { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-validate-with-xml-schema =
@@ -931,13 +931,13 @@ Step-validate-with-xml-schema =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute use-location-hints { xsd:boolean }?,
-    attribute try-namespaces { xsd:boolean }?,
-    attribute assert-valid { xsd:boolean }?,
-    attribute parameters { xsd:string }?,
-    attribute mode { "strict" | "lax" }?,
-    attribute version { xsd:string? }?,
-    attribute report-format { xsd:string }?,
+    attribute use-location-hints { avt.datatype }?,
+    attribute try-namespaces { avt.datatype }?,
+    attribute assert-valid { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute mode { avt.datatype }?,
+    attribute version { avt.datatype }?,
+    attribute report-format { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-add-attribute =
@@ -946,9 +946,9 @@ Step-add-attribute =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute attribute-name { xsd:QName }?,
-    attribute attribute-value { xsd:string }?,
+    attribute match { avt.datatype }?,
+    attribute attribute-name { avt.datatype }?,
+    attribute attribute-value { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-add-xml-base =
@@ -957,8 +957,8 @@ Step-add-xml-base =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute all { xsd:boolean }?,
-    attribute relative { xsd:boolean }?,
+    attribute all { avt.datatype }?,
+    attribute relative { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-archive =
@@ -967,9 +967,9 @@ Step-archive =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute format { xsd:QName }?,
-    attribute relative-to { xsd:anyURI? }?,
-    attribute parameters { xsd:string }?,
+    attribute format { avt.datatype }?,
+    attribute relative-to { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-archive-manifest =
@@ -978,9 +978,9 @@ Step-archive-manifest =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute format { xsd:QName? }?,
-    attribute parameters { xsd:string }?,
-    attribute relative-to { xsd:anyURI? }?,
+    attribute format { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute relative-to { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-cast-content-type =
@@ -989,8 +989,8 @@ Step-cast-content-type =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute content-type { xsd:string }?,
-    attribute parameters { xsd:string }?,
+    attribute content-type { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-compare =
@@ -999,9 +999,9 @@ Step-compare =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute method { xsd:QName? }?,
-    attribute fail-if-not-equal { xsd:boolean }?,
+    attribute parameters { avt.datatype }?,
+    attribute method { avt.datatype }?,
+    attribute fail-if-not-equal { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-compress =
@@ -1010,9 +1010,9 @@ Step-compress =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute format { xsd:QName }?,
-    attribute serialization { xsd:string }?,
-    attribute parameters { xsd:string }?,
+    attribute format { avt.datatype }?,
+    attribute serialization { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-count =
@@ -1021,7 +1021,7 @@ Step-count =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute limit { xsd:integer }?,
+    attribute limit { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-delete =
@@ -1030,7 +1030,7 @@ Step-delete =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
+    attribute match { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-error =
@@ -1039,7 +1039,7 @@ Step-error =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute code { xsd:QName }?,
+    attribute code { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-filter =
@@ -1048,7 +1048,7 @@ Step-filter =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute select { xsd:string }?,
+    attribute select { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-hash =
@@ -1057,11 +1057,11 @@ Step-hash =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute value { xsd:string }?,
-    attribute algorithm { xsd:QName }?,
-    attribute match { xsd:string }?,
-    attribute version { xsd:string? }?,
+    attribute parameters { avt.datatype }?,
+    attribute value { avt.datatype }?,
+    attribute algorithm { avt.datatype }?,
+    attribute match { avt.datatype }?,
+    attribute version { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-http-request =
@@ -1070,13 +1070,13 @@ Step-http-request =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute method { xsd:string? }?,
-    attribute serialization { xsd:string }?,
-    attribute headers { xsd:string }?,
-    attribute auth { xsd:string }?,
-    attribute parameters { xsd:string }?,
-    attribute assert { xsd:string }?,
+    attribute href { avt.datatype }?,
+    attribute method { avt.datatype }?,
+    attribute serialization { avt.datatype }?,
+    attribute headers { avt.datatype }?,
+    attribute auth { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute assert { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-identity =
@@ -1093,10 +1093,8 @@ Step-insert =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute position {
-      "first-child" | "last-child" | "before" | "after"
-    }?,
+    attribute match { avt.datatype }?,
+    attribute position { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-json-join =
@@ -1105,7 +1103,7 @@ Step-json-join =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute flatten-to-depth { xsd:string? }?,
+    attribute flatten-to-depth { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-json-merge =
@@ -1114,10 +1112,8 @@ Step-json-merge =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute duplicates {
-      "reject" | "use-first" | "use-last" | "use-any" | "combine"
-    }?,
-    attribute key { xsd:string }?,
+    attribute duplicates { avt.datatype }?,
+    attribute key { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-label-elements =
@@ -1126,10 +1122,10 @@ Step-label-elements =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute attribute { xsd:QName }?,
-    attribute label { xsd:string }?,
-    attribute match { xsd:string }?,
-    attribute replace { xsd:boolean }?,
+    attribute attribute { avt.datatype }?,
+    attribute label { avt.datatype }?,
+    attribute match { avt.datatype }?,
+    attribute replace { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-load =
@@ -1138,10 +1134,10 @@ Step-load =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute parameters { xsd:string }?,
-    attribute content-type { xsd:string? }?,
-    attribute document-properties { xsd:string }?,
+    attribute href { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute content-type { avt.datatype }?,
+    attribute document-properties { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-make-absolute-uris =
@@ -1150,8 +1146,8 @@ Step-make-absolute-uris =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute base-uri { xsd:anyURI? }?,
+    attribute match { avt.datatype }?,
+    attribute base-uri { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-namespace-delete =
@@ -1160,7 +1156,7 @@ Step-namespace-delete =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute prefixes { xsd:string }?,
+    attribute prefixes { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-namespace-rename =
@@ -1169,9 +1165,9 @@ Step-namespace-rename =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute from { xsd:anyURI? }?,
-    attribute to { xsd:anyURI? }?,
-    attribute apply-to { "all" | "elements" | "attributes" }?,
+    attribute from { avt.datatype }?,
+    attribute to { avt.datatype }?,
+    attribute apply-to { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-pack =
@@ -1180,7 +1176,7 @@ Step-pack =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute wrapper { xsd:QName }?,
+    attribute wrapper { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-rename =
@@ -1189,8 +1185,8 @@ Step-rename =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute new-name { xsd:QName }?,
+    attribute match { avt.datatype }?,
+    attribute new-name { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-replace =
@@ -1199,7 +1195,7 @@ Step-replace =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
+    attribute match { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-set-attributes =
@@ -1208,8 +1204,8 @@ Step-set-attributes =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute attributes { xsd:string }?,
+    attribute match { avt.datatype }?,
+    attribute attributes { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-set-properties =
@@ -1218,8 +1214,8 @@ Step-set-properties =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute properties { xsd:string }?,
-    attribute merge { xsd:boolean }?,
+    attribute properties { avt.datatype }?,
+    attribute merge { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-sink =
@@ -1236,8 +1232,8 @@ Step-split-sequence =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute initial-only { xsd:boolean }?,
-    attribute test { xsd:string }?,
+    attribute initial-only { avt.datatype }?,
+    attribute test { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-store =
@@ -1246,8 +1242,8 @@ Step-store =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute href { xsd:anyURI }?,
-    attribute serialization { xsd:string }?,
+    attribute href { avt.datatype }?,
+    attribute serialization { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-string-replace =
@@ -1256,8 +1252,8 @@ Step-string-replace =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute replace { xsd:string }?,
+    attribute match { avt.datatype }?,
+    attribute replace { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-text-count =
@@ -1274,7 +1270,7 @@ Step-text-head =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute count { xsd:integer }?,
+    attribute count { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-text-join =
@@ -1283,10 +1279,10 @@ Step-text-join =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute separator { xsd:string? }?,
-    attribute prefix { xsd:string? }?,
-    attribute suffix { xsd:string? }?,
-    attribute override-content-type { xsd:string? }?,
+    attribute separator { avt.datatype }?,
+    attribute prefix { avt.datatype }?,
+    attribute suffix { avt.datatype }?,
+    attribute override-content-type { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-text-replace =
@@ -1295,9 +1291,9 @@ Step-text-replace =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute pattern { xsd:string }?,
-    attribute replacement { xsd:string }?,
-    attribute flags { xsd:string? }?,
+    attribute pattern { avt.datatype }?,
+    attribute replacement { avt.datatype }?,
+    attribute flags { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-text-sort =
@@ -1306,12 +1302,12 @@ Step-text-sort =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute sort-key { xsd:string }?,
-    attribute order { "ascending" | "descending" }?,
-    attribute case-order { "upper-first" | "lower-first" }?,
-    attribute lang { xsd:language? }?,
-    attribute collation { xsd:string }?,
-    attribute stable { xsd:boolean }?,
+    attribute sort-key { avt.datatype }?,
+    attribute order { avt.datatype }?,
+    attribute case-order { avt.datatype }?,
+    attribute lang { avt.datatype }?,
+    attribute collation { avt.datatype }?,
+    attribute stable { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-text-tail =
@@ -1320,7 +1316,7 @@ Step-text-tail =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute count { xsd:integer }?,
+    attribute count { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-unarchive =
@@ -1329,11 +1325,11 @@ Step-unarchive =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute include-filter { xsd:string }?,
-    attribute exclude-filter { xsd:string }?,
-    attribute format { xsd:QName? }?,
-    attribute parameters { xsd:string }?,
-    attribute relative-to { xsd:anyURI? }?,
+    attribute include-filter { avt.datatype }?,
+    attribute exclude-filter { avt.datatype }?,
+    attribute format { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute relative-to { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-uncompress =
@@ -1342,9 +1338,9 @@ Step-uncompress =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute format { xsd:QName? }?,
-    attribute parameters { xsd:string }?,
-    attribute content-type { xsd:string }?,
+    attribute format { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
+    attribute content-type { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-unwrap =
@@ -1353,7 +1349,7 @@ Step-unwrap =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
+    attribute match { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-uuid =
@@ -1362,8 +1358,8 @@ Step-uuid =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute match { xsd:string }?,
-    attribute version { xsd:integer? }?,
+    attribute match { avt.datatype }?,
+    attribute version { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-wrap-sequence =
@@ -1372,8 +1368,8 @@ Step-wrap-sequence =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute wrapper { xsd:QName }?,
-    attribute group-adjacent { xsd:string? }?,
+    attribute wrapper { avt.datatype }?,
+    attribute group-adjacent { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-wrap =
@@ -1382,9 +1378,9 @@ Step-wrap =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute wrapper { xsd:QName }?,
-    attribute match { xsd:string }?,
-    attribute group-adjacent { xsd:string? }?,
+    attribute wrapper { avt.datatype }?,
+    attribute match { avt.datatype }?,
+    attribute group-adjacent { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-www-form-urldecode =
@@ -1393,7 +1389,7 @@ Step-www-form-urldecode =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute value { xsd:string }?,
+    attribute value { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-www-form-urlencode =
@@ -1402,7 +1398,7 @@ Step-www-form-urlencode =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
+    attribute parameters { avt.datatype }?,
     (WithOption* & (Documentation | PipeInfo)*)
   }
 Step-xinclude =
@@ -1411,8 +1407,8 @@ Step-xinclude =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute fixup-xml-base { xsd:boolean }?,
-    attribute fixup-xml-lang { xsd:boolean }?,
+    attribute fixup-xml-base { avt.datatype }?,
+    attribute fixup-xml-lang { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-xquery =
@@ -1421,8 +1417,8 @@ Step-xquery =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute version { xsd:string? }?,
+    attribute parameters { avt.datatype }?,
+    attribute version { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-xslt =
@@ -1431,11 +1427,11 @@ Step-xslt =
     common.attributes,
     use-when.attr?,
     step.attributes,
-    attribute parameters { xsd:string }?,
-    attribute global-context-item { xsd:string }?,
-    attribute initial-mode { xsd:QName? }?,
-    attribute template-name { xsd:QName? }?,
-    attribute output-base-uri { xsd:anyURI? }?,
-    attribute version { xsd:string? }?,
+    attribute parameters { avt.datatype }?,
+    attribute global-context-item { avt.datatype }?,
+    attribute initial-mode { avt.datatype }?,
+    attribute template-name { avt.datatype }?,
+    attribute output-base-uri { avt.datatype }?,
+    attribute version { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }

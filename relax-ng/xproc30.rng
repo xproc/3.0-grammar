@@ -1841,29 +1841,27 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="path">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="detailed">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="max-depth">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="include-filter">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="exclude-filter">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -1891,17 +1889,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="target">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -1929,17 +1927,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="recursive">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -1967,12 +1965,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2000,12 +1998,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2033,17 +2031,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="target">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2071,33 +2069,27 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="suffix">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="prefix">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="delete-on-exit">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2125,19 +2117,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="timestamp">
-          <optional>
-            <data type="dateTime"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-on-error">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2183,68 +2173,62 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="command">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="args">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="cwd">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="source-is-xml">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="result-is-xml">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="wrap-result-lines">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="errors-is-xml">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="wrap-error-lines">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="path-separator">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="failure-threshold">
-          <optional>
-            <data type="integer"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="arg-separator">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="serialization">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2275,14 +2259,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="content-type">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2313,14 +2295,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="content-type">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2374,7 +2354,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2405,17 +2385,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="assert-valid">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="report-format">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2446,27 +2426,27 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="dtd-attribute-values">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="dtd-id-idref-warnings">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="assert-valid">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="report-format">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2497,22 +2477,22 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="phase">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="assert-valid">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="report-format">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2543,42 +2523,37 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="use-location-hints">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="try-namespaces">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="assert-valid">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="mode">
-          <choice>
-            <value>strict</value>
-            <value>lax</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="version">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="report-format">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2609,17 +2584,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="attribute-name">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="attribute-value">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2650,12 +2625,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="all">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="relative">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2686,19 +2661,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="format">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="relative-to">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2729,21 +2702,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="format">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="relative-to">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2774,12 +2743,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="content-type">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2810,19 +2779,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="method">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fail-if-not-equal">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2853,17 +2820,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="format">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="serialization">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2894,7 +2861,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="limit">
-          <data type="integer"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2925,7 +2892,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2956,7 +2923,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="code">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -2987,7 +2954,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="select">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3018,29 +2985,27 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="value">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="algorithm">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="version">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3071,39 +3036,37 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="method">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="serialization">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="headers">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="auth">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="assert">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3157,17 +3120,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="position">
-          <choice>
-            <value>first-child</value>
-            <value>last-child</value>
-            <value>before</value>
-            <value>after</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3198,9 +3156,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="flatten-to-depth">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3231,18 +3187,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="duplicates">
-          <choice>
-            <value>reject</value>
-            <value>use-first</value>
-            <value>use-last</value>
-            <value>use-any</value>
-            <value>combine</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="key">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3273,22 +3223,22 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="attribute">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="label">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="replace">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3319,24 +3269,22 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="content-type">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="document-properties">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3364,14 +3312,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="base-uri">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3402,7 +3348,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="prefixes">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3433,25 +3379,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="from">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="to">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="apply-to">
-          <choice>
-            <value>all</value>
-            <value>elements</value>
-            <value>attributes</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3482,7 +3420,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="wrapper">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3513,12 +3451,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="new-name">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3549,7 +3487,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3580,12 +3518,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="attributes">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3616,12 +3554,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="properties">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="merge">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3675,12 +3613,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="initial-only">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="test">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3711,12 +3649,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="href">
-          <data type="anyURI"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="serialization">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3747,12 +3685,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="replace">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3806,7 +3744,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="count">
-          <data type="integer"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3837,30 +3775,22 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="separator">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="prefix">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="suffix">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="override-content-type">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3891,19 +3821,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="pattern">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="replacement">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="flags">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3934,40 +3862,32 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="sort-key">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="order">
-          <choice>
-            <value>ascending</value>
-            <value>descending</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="case-order">
-          <choice>
-            <value>upper-first</value>
-            <value>lower-first</value>
-          </choice>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="lang">
-          <optional>
-            <data type="language"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="collation">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="stable">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -3998,7 +3918,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="count">
-          <data type="integer"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4029,31 +3949,27 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="include-filter">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="exclude-filter">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="format">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="relative-to">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4084,19 +4000,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="format">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="content-type">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4127,7 +4041,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4158,14 +4072,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="version">
-          <optional>
-            <data type="integer"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4196,14 +4108,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="wrapper">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="group-adjacent">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4234,19 +4144,17 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="wrapper">
-          <data type="QName"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="match">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="group-adjacent">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4277,7 +4185,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="value">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4305,7 +4213,7 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4333,12 +4241,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="fixup-xml-base">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="fixup-xml-lang">
-          <data type="boolean"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4369,14 +4277,12 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="version">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
@@ -4407,40 +4313,32 @@
       <ref name="step.attributes"/>
       <optional>
         <attribute name="parameters">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="global-context-item">
-          <data type="string"/>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="initial-mode">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="template-name">
-          <optional>
-            <data type="QName"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="output-base-uri">
-          <optional>
-            <data type="anyURI"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <optional>
         <attribute name="version">
-          <optional>
-            <data type="string"/>
-          </optional>
+          <ref name="avt.datatype"/>
         </attribute>
       </optional>
       <interleave>
