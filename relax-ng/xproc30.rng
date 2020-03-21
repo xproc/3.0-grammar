@@ -28,6 +28,16 @@
   <define name="Char" sa:model="char">
     <text/>
   </define>
+  <!--
+    Copied from the grammar for xslt30.
+    It is possible to construct attribute values that are valid
+    but fail to pass this regexp. But this catches most of them.
+  -->
+  <define name="avt.datatype">
+    <data type="string">
+      <param name="pattern">([^\{\}]|\{\{|\}\}|\{([^"'\{\}]|"[^"]*"|'[^']*')+\})*</param>
+    </data>
+  </define>
   <define name="name.ncname.attr">
     <attribute name="name">
       <data type="NCName"/>

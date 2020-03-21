@@ -15,6 +15,14 @@ namespace xs = "http://www.w3.org/2001/XMLSchema"
 [ sa:model = "map(xs:QName,item()*)" ] SerializationMap = text
 [ sa:model = "EQName*" ] ListOfEQName = text
 [ sa:model = "char" ] Char = text
+# Copied from the grammar for xslt30.
+# It is possible to construct attribute values that are valid
+# but fail to pass this regexp. But this catches most of them.
+avt.datatype =
+  xsd:string {
+    pattern =
+      """([^\{\}]|\{\{|\}\}|\{([^"'\{\}]|"[^"]*"|'[^']*')+\})*"""
+  }
 name.ncname.attr = attribute name { xsd:NCName }
 name.qname.attr = attribute name { xsd:QName }
 as.attr = attribute as { XPathSequenceType }
