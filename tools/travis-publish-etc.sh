@@ -1,10 +1,6 @@
 #!/bin/bash
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-    cd $HOME
-    git clone --quiet --branch=gh-pages \
-        https://${GH_TOKEN}@github.com/${GIT_PUB_REPO} gh-pages > /dev/null
-    ls -la gh-pages
     echo "Cannot publish pull requests."
     exit
 fi
