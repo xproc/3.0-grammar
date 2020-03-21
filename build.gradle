@@ -64,6 +64,7 @@ task schemas(dependsOn: ["xproc_schemas"], type: Copy) {
   from "build/"
   into "build/dist/etc/"
   include "*.rn?"
+  exclude "core30.rng"
   doFirst {
     mkdir("build/dist/etc")
   }
