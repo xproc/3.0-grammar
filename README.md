@@ -8,22 +8,19 @@ also produces `library.xpl`, a step library for the steps.
 
 The resulting grammar will validate either XProc 1.0 or XProc 3.0.
 
+Note: the files in the `/steps/` directory are published automatically
+by the `3.0-steps` repository. Do not edit those files!
+
 ## Circular dependency
 
 The grammar is stored in a separate repository because the language
 specification and the step specifications are in separate repositories
 and they both depend on the grammar.
 
-Unfortunately, the grammar also depends on the specifications, so
-there’s an unavoidable circular dependency here.
+There is a circular dependency here, but it’s managed as follows:
 
-1. If the core grammar changes, rebuild this repository then rebuild
-   the language and step repositories so that the proper core grammar
-   is reflected in the language and step specifications. (Pushing a change
-   to this repository will automatically rebuild it.)
-    
-2. If a grammar fragment in the language specification or a
-   `p:declare-step` template in a step specification changes, rebuild
-   this grammar repository _after_ publishing the updated specification
-   so that those changes are reflected in
-   https://grammar.xproc.org/xproc-3.0/library.xpl
+1. Updating this repository will republish the grammar and library.
+
+2. When the `3.0-steps` repository is published, it automatically
+   updates the files in `/steps/`, which republishes the grammar and
+   the library.
