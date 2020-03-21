@@ -101,12 +101,11 @@ task xproc_library(type: XMLCalabashTask) {
 
 stepList.each { spec ->
     [ "library.xml", "steps.rnc", "steps.rng" ].each { fn ->
-        Task t = task "download_${spec}_${fn}"(type: Download) {
-            src "$stepsBaseUri/$spec/$fn"
-            dest "$buildDir/$spec/$fn"
+        Task t = task "download_${spec}_${fn}"(type: Copy) {
+            from "steps/$spec/$fn"
+            into "$buildDir/$spec/"
             doFirst { mkdir "$buildDir/$spec" }
         }
-        t.onlyIf { ! file("$buildDir/$spec/$fn".toString()).exists() }
         xproc_library.dependsOn t
     }
 }
