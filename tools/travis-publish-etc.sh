@@ -15,7 +15,7 @@ if [ "$GIT_PUB_REPO" != "" ]; then
         echo "Publishing..."
 
         git clone --quiet --branch=gh-pages \
-            https://${GH_TOKEN}@github.com/${GIT_PUB_REPO} gh-pages > /dev/null
+            https://${GH_TOKEN}@github.com/${GIT_PUB_REPO} gh-pages
 
         cd gh-pages
         cp -Rf $TRAVIS_BUILD_DIR/build/dist/x* ./relax-ng/
