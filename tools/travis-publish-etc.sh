@@ -17,25 +17,16 @@ if [ "$GIT_PUB_REPO" != "" ]; then
         git clone --quiet --branch=gh-pages \
             https://${GH_TOKEN}@github.com/${GIT_PUB_REPO} gh-pages > /dev/null
 
-        TIP=${TRAVIS_TAG:="head"}
-
-        # N.B. gh-pages here is updated by two different repositories.
-        # Consequently, we don't try to remove the old files.
-        # Occasional manual cleanup may be required.
-
         cd gh-pages
-        mkdir -p ./${TRAVIS_BRANCH}/${TIP}/etc
-        cp -Rf $TRAVIS_BUILD_DIR/build/dist/etc/* ./${TRAVIS_BRANCH}/${TIP}/etc
-
-        if [ "$GITHUB_CNAME" != "" ]; then
-            echo $GITHUB_CNAME > CNAME
-        fi
+        cp -Rf $TRAVIS_BUILD_DIR/build/dist/x* ./relax-ng/
+        cp -Rf $TRAVIS_BUILD_DIR/build/dist/core30.rng ./lib/
+        cp -Rf $TRAVIS_BUILD_DIR/build/dist/library.xpl ./xproc-3.0/
 
         git add --verbose -f .
         git commit -m "Successful travis build $TRAVIS_BUILD_NUMBER"
         git push -fq origin gh-pages > /dev/null
 
-        echo -e "Published specification to gh-pages.\n"
+        echo -e "Published schemas to gh-pages.\n"
     else
         echo -e "Publication skipped; no token.\n"
     fi
