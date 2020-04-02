@@ -2715,6 +2715,11 @@
           <ref name="avt.datatype"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="override-content-types">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="WithInput"/>
@@ -3969,6 +3974,11 @@
       </optional>
       <optional>
         <attribute name="relative-to">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="override-content-types">
           <ref name="avt.datatype"/>
         </attribute>
       </optional>
