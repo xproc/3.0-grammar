@@ -1,16 +1,15 @@
 default namespace p = "http://www.w3.org/ns/xproc"
 namespace local = ""
 
-# This schema could be made more constrained.
-
 Step = Step-run
 
 Step-run =
   element run {
     name.ncname.attr?,
+    attribute p:pipeline { xsd:NCName },
     common.attributes,
-    use-when.attr?,
+    global.attributes,
     step.attributes,
-    (WithInput* & (Documentation|PipeInfo)*)
+    ((WithInput | AtomicOutputDeclaration | WithOption)* & (Documentation|PipeInfo)*)
   }
 
