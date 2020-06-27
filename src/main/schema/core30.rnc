@@ -173,6 +173,7 @@ message.attr = attribute message { text }
 p_message.attr = attribute p:message { text }
 
 version.attr = attribute version { xsd:decimal }
+this.version.attr = attribute version { "3.0" }
 
 common.attributes = xmlid.attr?, xmlbase.attr?, extension.attr*
 
@@ -189,9 +190,14 @@ decl.attributes = psvi-required.attr?,
    exclude-inline-prefixes.attr?,
    version.attr?
 
+decl.this.version.attributes = psvi-required.attr?,
+   xpath-version.attr?,
+   exclude-inline-prefixes.attr?,
+   this.version.attr
+
 # ============================================================
 
-start = Library | DeclareStep
+start = OutermostLibrary | OutermostDeclareStep
  | VocabParam | VocabParamSet | VocabResult | VocabHttpRequest
  | VocabHeader | VocabMultipart | VocabBody | VocabHttpResponse | VocabQuery
  | VocabLine | VocabData | VocabDirectory | VocabArchive | Errors | StandardStep | ExtraStep
@@ -204,13 +210,28 @@ ExtraStep = notAllowed
 [
    sa:class = "language-construct"
 ]
-Library =
-   element library {
-      decl.attributes,
+LibraryContent =
       common.attributes,
       global.attributes,
       (Import|ImportFunctions|Documentation|PipeInfo)*,
       (DeclareStep|StaticOption|Documentation|PipeInfo)*
+
+[
+   sa:class = "language-construct"
+]
+OutermostLibrary =
+   element library {
+      decl.this.version.attributes,
+      LibraryContent
+   }
+
+[
+   sa:class = "language-construct"
+]
+Library =
+   element library {
+      decl.attributes,
+      LibraryContent
    }
 
 [
@@ -471,14 +492,20 @@ Variable =
 [
    sa:class = "language-construct"
 ]
-DeclarePipelineStep =
-   element declare-step {
+declare-step.common.attributes =
       name.ncname.attr?,
       attribute type { xsd:QName }?,
-      decl.attributes,
       visibility.attr?,
       common.attributes,
-      global.attributes,
+      global.attributes
+
+[
+   sa:class = "language-construct"
+]
+OutermostDeclarePipelineStep =
+   element declare-step {
+      declare-step.common.attributes,
+      decl.this.version.attributes,
       (Import|ImportFunctions|Documentation|PipeInfo)*,
       (Input|Output|Option|Documentation|PipeInfo)*,
       (DeclareStep|Documentation|PipeInfo)*,Subpipeline?
@@ -487,14 +514,32 @@ DeclarePipelineStep =
 [
    sa:class = "language-construct"
 ]
+DeclarePipelineStep =
+   element declare-step {
+      declare-step.common.attributes,
+      decl.attributes,
+      (Import|ImportFunctions|Documentation|PipeInfo)*,
+      (Input|Output|Option|Documentation|PipeInfo)*,
+      (DeclareStep|Documentation|PipeInfo)*,Subpipeline?
+   }
+
+[
+   sa:class = "language-construct"
+]
+OutermostDeclareAtomicStep =
+   element declare-step {
+      declare-step.common.attributes,
+      decl.this.version.attributes,
+      (Input|AtomicOutputDeclaration|Option|Documentation|PipeInfo)*
+   }
+
+[
+   sa:class = "language-construct"
+]
 DeclareAtomicStep =
    element declare-step {
-      name.ncname.attr?,
-      attribute type { xsd:QName }?,
+      declare-step.common.attributes,
       decl.attributes,
-      visibility.attr?,
-      common.attributes,
-      global.attributes,
       (Input|AtomicOutputDeclaration|Option|Documentation|PipeInfo)*
    }
 
@@ -502,6 +547,11 @@ DeclareAtomicStep =
    sa:element = "declare-step"
 ]
 DeclareStep = DeclarePipelineStep | DeclareAtomicStep
+
+[
+   sa:element = "declare-step"
+]
+OutermostDeclareStep = OutermostDeclarePipelineStep | OutermostDeclareAtomicStep
 
 # ============================================================
 
