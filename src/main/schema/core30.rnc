@@ -104,12 +104,23 @@ EQNameList = xsd:NMTOKENS
 [
    sa:ignore = "yes"
 ]
+xmllang.attr = attribute xml:lang { text }
+
+[
+   sa:ignore = "yes"
+]
+xmlspace.attr = attribute xml:space { "default" | "preserve" }
+
+[
+   sa:ignore = "yes"
+]
 xmlid.attr = attribute xml:id { xsd:ID }
 
 [
    sa:ignore = "yes"
 ]
 xmlbase.attr = attribute xml:base { xsd:anyURI }
+
 href.attr = attribute href { xsd:anyURI }
 
 [
@@ -174,7 +185,12 @@ p_message.attr = attribute p:message { text }
 
 version.attr = attribute version { xsd:decimal }
 
-common.attributes = xmlid.attr?, xmlbase.attr?, extension.attr*
+common.attributes =
+    xmllang.attr?
+    & xmlspace.attr?
+    & xmlid.attr?
+    & xmlbase.attr?
+    & extension.attr*
 
 global.attributes = use-when.attr?, expand-text.attr?
 p_global.attributes = p_use-when.attr?, p_expand-text.attr?
