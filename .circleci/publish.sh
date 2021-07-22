@@ -20,8 +20,8 @@ if [ -z "${GIT_PUB_REPO}" ]; then
     exit
 fi
 
-#git config --global user.email ${GIT_EMAIL}
-#git config --global user.name ${GIT_NAME}
+git config --global user.email ${GIT_EMAIL}
+git config --global user.name ${GIT_NAME}
 
 echo "Publishing..."
 
@@ -33,7 +33,7 @@ cp -Rf build/dist/core30.rng ./lib/
 cp -Rf build/dist/library.xpl ./xproc-3.0/
 
 git add --verbose -f ./relax-ng ./lib ./xproc-3.0
-#git commit -m "Successful travis build $TRAVIS_BUILD_NUMBER"
-#git push -fq origin gh-pages > /dev/null
+git commit -m "Successful CircleCI build $CIRCLE_BUILD_NUM"
+git push -fq origin gh-pages > /dev/null
 
 echo -e "Published schemas to gh-pages.\n"
