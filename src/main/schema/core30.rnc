@@ -450,11 +450,10 @@ WithOption =
       name.qname.attr,
       as.attr?,
       select.attr,
-      [ sa:avt = "true" ]
-        collection.attr?,
+      collection.attr?,
       [ sa:avt = "true" ]
          href.attr?,
-         pipe.attr?,
+      pipe.attr?,
       common.attributes,
       global.attributes,
       inline.attributes,
@@ -471,8 +470,7 @@ Variable =
       name.qname.attr,
       as.attr?,
       select.attr,
-      [ sa:avt = "true" ]
-         collection.attr?,
+      collection.attr?,
       [ sa:avt = "true" ]
          href.attr?,
       pipe.attr?,
@@ -578,8 +576,7 @@ When =
    element when {
    	  name.ncname.attr?,
       attribute test { XPathExpression },
-      [ sa:avt = "true" ]
-         collection.attr?,
+      collection.attr?,
       common.attributes,
       global.attributes,
       ((Documentation|PipeInfo)*,
@@ -608,8 +605,7 @@ If =
    element if {
    	  name.ncname.attr?,
       attribute test { XPathExpression },
-      [ sa:avt = "true" ]
-         collection.attr?,
+      collection.attr?,
       common.attributes,
       global.attributes,
       step.attributes,
