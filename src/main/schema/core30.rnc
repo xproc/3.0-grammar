@@ -699,6 +699,19 @@ OtherCompoundStep =
 OtherStep = StandardStep | OtherAtomicStep | OtherCompoundStep
 
 # ============================================================
+# The p:run step is magic.
+
+Step-run =
+  element run {
+    name.ncname.attr?,
+    attribute p:pipeline { xsd:NCName },
+    common.attributes,
+    global.attributes,
+    step.attributes,
+    ((WithInput | AtomicOutputDeclaration | WithOption)* & (Documentation|PipeInfo)*)
+  }
+
+# ============================================================
 [
    sa:ignore = "yes"
    sa:class = "language-construct"

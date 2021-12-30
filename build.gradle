@@ -72,7 +72,7 @@ task schemas(dependsOn: ["xproc_schemas"], type: Copy) {
 // ======================================================================
 
 def stepList = [ "step-file", "step-os", "step-paged-media",
-                 "step-run", "step-text", "step-validation", "steps" ]
+                 "step-text", "step-validation", "steps" ]
 
 // ======================================================================
 
