@@ -1322,6 +1322,38 @@
       <ref name="OtherCompoundStep"/>
     </choice>
   </define>
+  <!--
+    ============================================================
+    The p:run step is magic.
+  -->
+  <define name="Step-run">
+    <element name="run">
+      <optional>
+        <ref name="name.ncname.attr"/>
+      </optional>
+      <attribute name="p:pipeline">
+        <data type="NCName"/>
+      </attribute>
+      <ref name="common.attributes"/>
+      <ref name="global.attributes"/>
+      <ref name="step.attributes"/>
+      <interleave>
+        <zeroOrMore>
+          <choice>
+            <ref name="WithInput"/>
+            <ref name="AtomicOutputDeclaration"/>
+            <ref name="WithOption"/>
+          </choice>
+        </zeroOrMore>
+        <zeroOrMore>
+          <choice>
+            <ref name="Documentation"/>
+            <ref name="PipeInfo"/>
+          </choice>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
   <!-- ============================================================ -->
   <define name="Documentation" sa:ignore="yes" sa:class="language-construct">
     <element name="documentation">
