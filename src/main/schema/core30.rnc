@@ -708,8 +708,43 @@ Step-run =
     common.attributes,
     global.attributes,
     step.attributes,
-    ((WithInput | AtomicOutputDeclaration | WithOption)* & (Documentation|PipeInfo)*)
+    (WithInput? & Output? & RunInput* & RunOption* & Documentation* & PipeInfo*)
   }
+
+[
+   sa:class = "language-construct"
+   sa:element = "with-input"
+]
+RunInput =
+   element run-input {
+      port.attr?,
+      select.attr?,
+      [ sa:avt = "true" ]
+         href.attr?,
+         pipe.attr?,
+      common.attributes,
+      global.attributes,
+      inline.attributes,
+      ( ( (\Empty | (Document|Pipe|Inline)*) & (Documentation|PipeInfo)* ) | AnyElement* )
+   }
+
+[
+   sa:class = "language-construct"
+]
+RunOption =
+   element run-option {
+      name.qname.attr,
+      as.attr?,
+      select.attr,
+      collection.attr?,
+      [ sa:avt = "true" ]
+         href.attr?,
+      pipe.attr?,
+      common.attributes,
+      global.attributes,
+      inline.attributes,
+      ( ( (\Empty | (Document|Pipe|Inline)*) & (Documentation|PipeInfo)* ) | AnyElement* )
+   }
 
 # ============================================================
 [
