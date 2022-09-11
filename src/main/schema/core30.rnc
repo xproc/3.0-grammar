@@ -707,7 +707,7 @@ Step-run =
     common.attributes,
     global.attributes,
     step.attributes,
-    WithInput? & RunInput* & RunOption* & Output* & Documentation* & PipeInfo*
+    (WithInput? & RunInput* & RunOption* & Output* & Documentation* & PipeInfo*)
   }
 
 [
