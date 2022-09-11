@@ -1331,9 +1331,6 @@
       <optional>
         <ref name="name.ncname.attr"/>
       </optional>
-      <attribute name="p:pipeline">
-        <data type="NCName"/>
-      </attribute>
       <ref name="common.attributes"/>
       <ref name="global.attributes"/>
       <ref name="step.attributes"/>
@@ -1341,14 +1338,14 @@
         <optional>
           <ref name="WithInput"/>
         </optional>
-        <optional>
-          <ref name="Output"/>
-        </optional>
         <zeroOrMore>
           <ref name="RunInput"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="RunOption"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="Output"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="Documentation"/>
@@ -1359,7 +1356,7 @@
       </interleave>
     </element>
   </define>
-  <define name="RunInput" sa:class="language-construct" sa:element="with-input">
+  <define name="RunInput" sa:class="language-construct" sa:element="run-input">
     <element name="run-input">
       <optional>
         <ref name="port.attr"/>
