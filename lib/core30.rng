@@ -1370,6 +1370,9 @@
       <optional>
         <ref name="pipe.attr"/>
       </optional>
+      <optional>
+        <ref name="primary.attr"/>
+      </optional>
       <ref name="common.attributes"/>
       <ref name="global.attributes"/>
       <ref name="inline.attributes"/>
@@ -1413,6 +1416,9 @@
       </optional>
       <optional>
         <ref name="pipe.attr"/>
+      </optional>
+      <optional>
+        <ref name="static.attr"/>
       </optional>
       <ref name="common.attributes"/>
       <ref name="global.attributes"/>
