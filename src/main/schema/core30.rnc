@@ -704,16 +704,15 @@ OtherStep = StandardStep | OtherAtomicStep | OtherCompoundStep
 Step-run =
   element run {
     name.ncname.attr?,
-    attribute p:pipeline { xsd:NCName },
     common.attributes,
     global.attributes,
     step.attributes,
-    (WithInput? & Output? & RunInput* & RunOption* & Documentation* & PipeInfo*)
+    WithInput? & RunInput* & RunOption* & Output* & Documentation* & PipeInfo*
   }
 
 [
    sa:class = "language-construct"
-   sa:element = "with-input"
+   sa:element = "run-input"
 ]
 RunInput =
    element run-input {
