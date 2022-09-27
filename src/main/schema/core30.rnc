@@ -716,7 +716,7 @@ Step-run =
 ]
 RunInput =
    element run-input {
-      port.attr?,
+      port.attr,
       select.attr?,
       [ sa:avt = "true" ]
          href.attr?,
