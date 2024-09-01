@@ -60,7 +60,7 @@
    <p:declare-step type="p:compare" xml:id="compare">
       <p:input port="source" primary="true" content-types="any"/>
       <p:input port="alternate" content-types="any"/>
-      <p:output port="result" content-types="application/xml"/>
+      <p:output port="result" primary="true" content-types="application/xml"/>
       <p:output port="differences" content-types="any" sequence="true"/>
       <p:option name="parameters" as="map(xs:QName,item()*)?"/>
       <p:option name="method" as="xs:QName?"/>
@@ -200,8 +200,8 @@
    </p:declare-step>
    <p:declare-step type="p:insert" xml:id="insert">
       <p:input port="source" primary="true" content-types="xml html"/>
-      <p:input port="insertion" sequence="true" content-types="xml html"/>
-      <p:output port="result" content-types="xml html"/>
+      <p:input port="insertion" sequence="true" content-types="xml html text"/>
+      <p:output port="result" content-types="xml html text"/>
       <p:option name="match"
                 as="xs:string"
                 select="'/*'"
@@ -209,6 +209,13 @@
       <p:option name="position"
                 values="('first-child','last-child','before','after')"
                 select="'after'"/>
+   </p:declare-step>
+   <p:declare-step type="p:ixml" xml:id="ixml">
+      <p:input port="grammar" sequence="true" content-types="text xml"/>
+      <p:input port="source" primary="true" content-types="any -xml -html"/>
+      <p:output port="result" sequence="true" content-types="any"/>
+      <p:option name="parameters" as="map(xs:QName, item()*)?"/>
+      <p:option name="fail-on-error" as="xs:boolean" select="true()"/>
    </p:declare-step>
    <p:declare-step type="p:json-join" xml:id="json-join">
       <p:input port="source" sequence="true" content-types="any"/>
@@ -277,8 +284,11 @@
    </p:declare-step>
    <p:declare-step type="p:os-exec" xml:id="os-exec">
       <p:input port="source" sequence="true" content-types="any"/>
-      <p:output port="result" primary="true" content-types="any"/>
-      <p:output port="error" content-types="any"/>
+      <p:output port="result"
+                primary="true"
+                sequence="true"
+                content-types="any"/>
+      <p:output port="error" sequence="true" content-types="any"/>
       <p:output port="exit-status" content-types="application/xml"/>
       <p:option name="command" required="true" as="xs:string"/>
       <p:option name="args" select="()" as="xs:string*"/>
@@ -319,6 +329,13 @@
                 as="xs:string"
                 e:type="XSLTSelectionPattern"/>
    </p:declare-step>
+   <p:declare-step type="p:send-mail" xml:id="send-mail">
+      <p:input port="source" sequence="true" content-types="any"/>
+      <p:output port="result" content-types="application/xml"/>
+      <p:option name="serialization" as="map(xs:QName,item()*)?"/>
+      <p:option name="auth" as="map(xs:string, item()+)?"/>
+      <p:option name="parameters" as="map(xs:QName, item()*)?"/>
+   </p:declare-step>
    <p:declare-step type="p:set-attributes" xml:id="set-attributes">
       <p:input port="source" primary="true" content-types="xml html"/>
       <p:output port="result" content-types="xml html"/>
@@ -338,6 +355,11 @@
    </p:declare-step>
    <p:declare-step type="p:sink" xml:id="sink">
       <p:input port="source" content-types="any" sequence="true"/>
+   </p:declare-step>
+   <p:declare-step type="p:sleep" xml:id="sleep">
+      <p:input port="source" sequence="true" content-types="any"/>
+      <p:output port="result" sequence="true" content-types="any"/>
+      <p:option name="duration" as="xs:nonNegativeInteger" required="true"/>
    </p:declare-step>
    <p:declare-step type="p:split-sequence" xml:id="split-sequence">
       <p:input port="source" content-types="any" sequence="true"/>
@@ -436,7 +458,7 @@
       <p:option name="lang" as="xs:language?"/>
       <p:option name="collation"
                 as="xs:string"
-                select="'https://www.w3.org/2005/xpath-functions/collation/codepoint'"/>
+                select="'http://www.w3.org/2005/xpath-functions/collation/codepoint'"/>
       <p:option name="stable" as="xs:boolean" select="true()"/>
    </p:declare-step>
    <p:declare-step type="p:text-tail" xml:id="text-tail">
@@ -497,6 +519,15 @@
                 select="'/*'"
                 e:type="XSLTSelectionPattern"/>
       <p:option name="version" as="xs:integer?"/>
+      <p:option name="parameters" as="map(xs:QName, item()*)?"/>
+   </p:declare-step>
+   <p:declare-step type="p:validate-with-dtd" xml:id="validate-with-dtd">
+      <p:input port="source" primary="true" content-types="xml html"/>
+      <p:output port="result" primary="true" content-types="xml html"/>
+      <p:output port="report" sequence="true" content-types="xml json"/>
+      <p:option name="report-format" select="'xvrl'" as="xs:string"/>
+      <p:option name="serialization" as="map(xs:QName,item()*)?"/>
+      <p:option name="assert-valid" select="true()" as="xs:boolean"/>
    </p:declare-step>
    <p:declare-step type="p:validate-with-json-schema" xml:id="validate-with-json-schema">
       <p:input port="source" primary="true" content-types="json"/>
@@ -504,7 +535,7 @@
       <p:output port="result" primary="true" content-types="json"/>
       <p:output port="report" sequence="true" content-types="xml json"/>
       <p:option name="assert-valid" select="true()" as="xs:boolean"/>
-      <p:option name="default-version" as="xs:string"/>
+      <p:option name="default-version" as="xs:string?"/>
       <p:option name="parameters" as="map(xs:QName,item()*)?"/>
       <p:option name="report-format" select="'xvrl'" as="xs:string"/>
    </p:declare-step>
