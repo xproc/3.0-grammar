@@ -743,6 +743,7 @@ StandardStep =
   | Step-validate-with-schematron
   | Step-validate-with-xml-schema
   | Step-validate-with-json-schema
+  | Step-validate-with-dtd
   | Step-add-attribute
   | Step-add-xml-base
   | Step-archive
@@ -771,6 +772,7 @@ StandardStep =
   | Step-set-attributes
   | Step-set-properties
   | Step-sink
+  | Step-sleep
   | Step-split-sequence
   | Step-store
   | Step-string-replace
@@ -998,6 +1000,17 @@ Step-validate-with-json-schema =
     attribute default-version { avt.datatype }?,
     attribute parameters { avt.datatype }?,
     attribute report-format { avt.datatype }?,
+    (WithInput* & WithOption* & (Documentation | PipeInfo)*)
+  }
+Step-validate-with-dtd =
+  element validate-with-dtd {
+    name.ncname.attr?,
+    common.attributes,
+    use-when.attr?,
+    step.attributes,
+    attribute report-format { avt.datatype }?,
+    attribute serialization { avt.datatype }?,
+    attribute assert-valid { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-add-attribute =
@@ -1287,6 +1300,15 @@ Step-sink =
     step.attributes,
     (WithInput* & (Documentation | PipeInfo)*)
   }
+Step-sleep =
+  element sleep {
+    name.ncname.attr?,
+    common.attributes,
+    use-when.attr?,
+    step.attributes,
+    attribute duration { avt.datatype }?,
+    (WithInput* & WithOption* & (Documentation | PipeInfo)*)
+  }
 Step-split-sequence =
   element split-sequence {
     name.ncname.attr?,
@@ -1422,6 +1444,7 @@ Step-uuid =
     step.attributes,
     attribute match { avt.datatype }?,
     attribute version { avt.datatype }?,
+    attribute parameters { avt.datatype }?,
     (WithInput* & WithOption* & (Documentation | PipeInfo)*)
   }
 Step-wrap-sequence =

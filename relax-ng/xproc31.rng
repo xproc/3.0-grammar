@@ -1933,6 +1933,7 @@
       <ref name="Step-validate-with-schematron"/>
       <ref name="Step-validate-with-xml-schema"/>
       <ref name="Step-validate-with-json-schema"/>
+      <ref name="Step-validate-with-dtd"/>
       <ref name="Step-add-attribute"/>
       <ref name="Step-add-xml-base"/>
       <ref name="Step-archive"/>
@@ -1961,6 +1962,7 @@
       <ref name="Step-set-attributes"/>
       <ref name="Step-set-properties"/>
       <ref name="Step-sink"/>
+      <ref name="Step-sleep"/>
       <ref name="Step-split-sequence"/>
       <ref name="Step-store"/>
       <ref name="Step-string-replace"/>
@@ -2725,6 +2727,47 @@
       </optional>
       <optional>
         <attribute name="report-format">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="WithInput"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="WithOption"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <choice>
+            <ref name="Documentation"/>
+            <ref name="PipeInfo"/>
+          </choice>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+  <define name="Step-validate-with-dtd">
+    <element name="validate-with-dtd">
+      <optional>
+        <ref name="name.ncname.attr"/>
+      </optional>
+      <ref name="common.attributes"/>
+      <optional>
+        <ref name="use-when.attr"/>
+      </optional>
+      <ref name="step.attributes"/>
+      <optional>
+        <attribute name="report-format">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="serialization">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="assert-valid">
           <ref name="avt.datatype"/>
         </attribute>
       </optional>
@@ -3778,6 +3821,37 @@
       </interleave>
     </element>
   </define>
+  <define name="Step-sleep">
+    <element name="sleep">
+      <optional>
+        <ref name="name.ncname.attr"/>
+      </optional>
+      <ref name="common.attributes"/>
+      <optional>
+        <ref name="use-when.attr"/>
+      </optional>
+      <ref name="step.attributes"/>
+      <optional>
+        <attribute name="duration">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="WithInput"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="WithOption"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <choice>
+            <ref name="Documentation"/>
+            <ref name="PipeInfo"/>
+          </choice>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
   <define name="Step-split-sequence">
     <element name="split-sequence">
       <optional>
@@ -4259,6 +4333,11 @@
       </optional>
       <optional>
         <attribute name="version">
+          <ref name="avt.datatype"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="parameters">
           <ref name="avt.datatype"/>
         </attribute>
       </optional>
