@@ -60,141 +60,235 @@ import de.undercouch.gradle.tasks.download.Download
 
 // ======================================================================
 
-task schemas(dependsOn: ["xproc_schemas"], type: Copy) {
-  from "build/"
-  into "build/dist/"
-  include "*.rn?"
-  doFirst {
-    mkdir("build/dist")
-  }
+task schemas(dependsOn: ["xproc_schemas31", "xproc_schemas30"]) {
 }
 
 // ======================================================================
 
-def stepList = [ "step-file", "step-os", "step-paged-media",
-                 "step-text", "step-validation", "steps" ]
+def stepList30 = [ "step-file", "step-os", "step-paged-media",
+                   "step-text", "step-validation", "steps" ]
+
+def stepList31 = [ "step-file", "step-ixml", "step-mail", "step-os", "step-paged-media",
+                   "step-text", "step-validation", "steps" ]
 
 // ======================================================================
 
-task xproc_library(type: XMLCalabashTask) {
+task xproc_library31(
+  type: XMLCalabashTask,
+  dependsOn: [ "xproc10_rnc", "xproc_rnc" ]
+) {
   // N.B. Because Travis jobs cannot see the filesystem, we have
   // to list the dependencies twice. :-(
   String steps = ""
-  stepList.each { s ->
-    steps = steps + " ../../build/" + s + "/library.xml"
+  stepList31.each { s ->
+    steps = steps + " ../../build/3.1/" + s + "/library.xml"
   }
 
-  inputs.files(fileTree(dir: 'build').include("**/library.xml"))
+  inputs.files(fileTree(dir: 'build/3.1').include("**/library.xml"))
   inputs.file "tools/xpl/make-library.xpl"
   inputs.file "tools/xsl/make-library.xsl"
-  input("source", "build/steps/library.xml")
-  output("result", "build/dist/library.xpl")
+  input("source", "build/3.1/steps/library.xml")
+  output("result", "build/dist/3.1/library.xpl")
   param("libraries", steps)
   pipeline "tools/xpl/make-library.xpl"
-  doFirst {
-    mkdir("build/dist")
+}
+
+task xproc_library30(
+  type: XMLCalabashTask,
+  dependsOn: [ "xproc10_rnc", "xproc_rnc" ]
+) {
+  // N.B. Because Travis jobs cannot see the filesystem, we have
+  // to list the dependencies twice. :-(
+  String steps = ""
+  stepList30.each { s ->
+    steps = steps + " ../../build/3.0/" + s + "/library.xml"
   }
+
+  inputs.files(fileTree(dir: 'build/3.0').include("**/library.xml"))
+  inputs.file "tools/xpl/make-library.xpl"
+  inputs.file "tools/xsl/make-library.xsl"
+  input("source", "build/3.0/steps/library.xml")
+  output("result", "build/dist/3.0/library.xpl")
+  param("libraries", steps)
+  pipeline "tools/xpl/make-library.xpl"
 }
 
 // ======================================================================
 // Make sure that xproc_library depends on each of the schemas
 
-stepList.each { spec ->
+stepList30.each { spec ->
     [ "library.xml", "steps.rnc", "steps.rng" ].each { fn ->
-        Task t = task "download_${spec}_${fn}"(type: Copy) {
-            from "steps/$spec/$fn"
-            into "$buildDir/$spec/"
-            doFirst { mkdir "$buildDir/$spec" }
+        Task t = task "download_30_${spec}_${fn}"(type: Copy) {
+            from "steps/3.0/$spec/$fn"
+            into "$buildDir/3.0/$spec/"
+            doFirst { mkdir "$buildDir/3.0/$spec" }
         }
-        xproc_library.dependsOn t
+        xproc_library30.dependsOn t
+    }
+}
+
+stepList31.each { spec ->
+    [ "library.xml", "steps.rnc", "steps.rng" ].each { fn ->
+        Task t = task "download_31_${spec}_${fn}"(type: Copy) {
+            from "steps/3.1/$spec/$fn"
+            into "$buildDir/3.1/$spec/"
+            doFirst { mkdir "$buildDir/3.1/$spec" }
+        }
+        xproc_library31.dependsOn t
     }
 }
 
 // ======================================================================
 // XProc schemas
 
-task core_rng(type: JavaExec) {
+task core31_rng(type: JavaExec) {
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
-  args = ["src/main/schema/core30.rnc", "build/core30.rng"]
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["src/main/schema/core31.rnc", "build/3.1/core31.rng"]
   doFirst {
-    mkdir("build")
+    mkdir("build/3.1")
+  }
+}
+
+task xproc31_rng(type: XMLCalabashTask,
+               dependsOn: [ "core31_rng", "xproc_library31" ]) {
+  // N.B. Because Travis jobs cannot see the filesystem, we have
+  // to list the dependencies twice. :-(
+  String files = ""
+  stepList30.each { s ->
+    files = files + " ../../build/3.1/" + s + "/steps.rng"
+  }
+
+  inputs.file "build/3.1/core31.rng"
+  inputs.file "tools/xpl/make-rng.xpl"
+  inputs.file "tools/xsl/make-rng.xsl"
+  outputs.file "build/3.1/xproc31.rng"
+  input("source", "build/3.1/core31.rng")
+  output("result", "build/3.1/xproc31.rng")
+  param("libraries", files)
+  pipeline "tools/xpl/make-rng.xpl"
+}
+
+task xproc31_rnc(dependsOn: [ "xproc31_rng" ], type: JavaExec) {
+  inputs.file "build/3.1/xproc31.rng"
+  outputs.file "build/3.1/xproc31.rnc"
+  classpath = configurations.tools
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["build/3.1/xproc31.rng", "build/3.1/xproc31.rnc"]
+  doLast {
+    copy {
+      from "build/3.1"
+      into "build/lib"
+      include "core*"
+    }
+  }
+}
+
+task core30_rng(type: JavaExec) {
+  classpath = configurations.tools
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["src/main/schema/core30.rnc", "build/3.0/core30.rng"]
+  doFirst {
+    mkdir("build/3.0")
   }
 }
 
 task xproc30_rng(type: XMLCalabashTask,
-               dependsOn: [ "core_rng", "xproc_library" ]) {
+               dependsOn: [ "core30_rng", "xproc_library30" ]) {
   // N.B. Because Travis jobs cannot see the filesystem, we have
   // to list the dependencies twice. :-(
   String files = ""
-  stepList.each { s->
-    files = files + " ../../build/" + s + "/steps.rng"
+  stepList30.each { s->
+    files = files + " ../../build/3.0/" + s + "/steps.rng"
   }
 
-  inputs.file "build/core30.rng"
+  inputs.file "build/3.0/core30.rng"
   inputs.file "tools/xpl/make-rng.xpl"
   inputs.file "tools/xsl/make-rng.xsl"
-  outputs.file "build/xproc30.rng"
-  input("source", "build/core30.rng")
-  output("result", "build/xproc30.rng")
+  outputs.file "build/3.0/xproc30.rng"
+  input("source", "build/3.0/core30.rng")
+  output("result", "build/3.0/xproc30.rng")
   param("libraries", files)
   pipeline "tools/xpl/make-rng.xpl"
 }
 
 task xproc30_rnc(dependsOn: [ "xproc30_rng" ], type: JavaExec) {
-  inputs.file "build/xproc30.rng"
-  outputs.file "build/xproc30.rnc"
+  inputs.file "build/3.0/xproc30.rng"
+  outputs.file "build/3.0/xproc30.rnc"
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
-  args = ["build/xproc30.rng", "build/xproc30.rnc"]
-  doFirst {
-    mkdir("build")
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["build/3.0/xproc30.rng", "build/3.0/xproc30.rnc"]
+  doLast {
+    copy {
+      from "build/3.0"
+      into "build/lib"
+      include "core*"
+    }
   }
 }
 
 task xproc10_rnc(type: Copy) {
   from "src/main/schema/"
-  into "build/"
+  into "build/1.0/"
   include "xproc10.rnc"
   doFirst {
-    mkdir("build")
+    mkdir("build/1.0")
   }
 }
 
 task xproc_rnc(type: Copy) {
   from "src/main/schema/"
-  into "build/"
+  into "build/relax-ng"
   include "xproc.rnc"
   doFirst {
     mkdir("build")
   }
 }
 
-task xproc10_rng(dependsOn: [ "xproc10_rnc" ], type: JavaExec) {
-  inputs.file "build/xproc10.rnc"
-  outputs.file "build/xproc10.rng"
+task xproc10_rng(dependsOn: [ "xproc10_rnc", "xproc_rnc" ], type: JavaExec) {
+  inputs.file "build/1.0/xproc10.rnc"
+  outputs.file "build/1.0/xproc10.rng"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
-  args = ["build/xproc10.rnc", "build/xproc10.rng"]
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["build/1.0/xproc10.rnc", "build/1.0/xproc10.rng"]
 }
 
-task xproc_rng(dependsOn: [ "xproc_rnc" ], type: JavaExec) {
-  inputs.file "build/xproc.rnc"
-  outputs.file "build/xproc.rng"
+task xproc_rnc_to_rng(dependsOn: [ "xproc31_rnc", "xproc30_rnc", "xproc10_rnc", "xproc_rnc" ], type: JavaExec) {
+  inputs.file "build/relax-ng/xproc.rnc"
+  outputs.file "build/relax-ng/xproc.rng"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
-  args = ["build/xproc.rnc", "build/xproc.rng"]
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["build/relax-ng/xproc.rnc", "build/relax-ng/xproc.rng"]
 }
 
-task xproc_schemas(dependsOn: [ "xproc30_rnc", "xproc30_rng", "xproc10_rng", "xproc_rng" ],
+// Convert *back* to rnc from rng to remove relative paths
+task xproc_rng(dependsOn: [ "xproc_rnc_to_rng" ], type: JavaExec) {
+  inputs.file "build/relax-ng/xproc.rng"
+  outputs.file "build/relax-ng/xproc.rnc"
+
+  classpath = configurations.tools
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
+  args = ["build/relax-ng/xproc.rng", "build/relax-ng/xproc.rnc"]
+}
+
+task xproc_schemas31(dependsOn: [ "xproc31_rnc", "xproc31_rng", "xproc10_rng", "xproc_rng" ],
                    type: JavaExec) {
   inputs.file "tools/xpl/smoke-test.xpl"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.util.Driver'
-  args = ["-i", "-c", "build/xproc.rnc", "tools/xpl/smoke-test.xpl" ]
+  mainClass = 'com.thaiopensource.relaxng.util.Driver'
+  args = ["-i", "-c", "build/3.1/xproc31.rnc", "tools/xpl/smoke-test.xpl" ]
+}
+
+task xproc_schemas30(dependsOn: [ "xproc30_rnc", "xproc30_rng", "xproc10_rng", "xproc_rng" ],
+                   type: JavaExec) {
+  inputs.file "tools/xpl/smoke-test.xpl"
+
+  classpath = configurations.tools
+  mainClass = 'com.thaiopensource.relaxng.util.Driver'
+  args = ["-i", "-c", "build/3.0/xproc30.rnc", "tools/xpl/smoke-test-31.xpl" ]
 }
 
 // ======================================================================

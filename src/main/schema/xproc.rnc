@@ -1,4 +1,5 @@
-xproc10 = external "xproc10.rnc"
-xproc30 = external "xproc30.rnc"
+xproc10 = external "../1.0/xproc10.rnc"
+xproc30 = external "../3.0/xproc30.rnc"
+xproc31 = external "../3.1/xproc31.rnc"
 
-start = xproc10 | xproc30
+start = xproc10 | xproc30 | xproc31
