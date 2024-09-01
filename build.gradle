@@ -76,7 +76,10 @@ def stepList = [ "step-file", "step-os", "step-paged-media",
 
 // ======================================================================
 
-task xproc_library(type: XMLCalabashTask) {
+task xproc_library(
+  type: XMLCalabashTask,
+  dependsOn: [ "xproc10_rnc", "xproc_rnc" ]
+) {
   // N.B. Because Travis jobs cannot see the filesystem, we have
   // to list the dependencies twice. :-(
   String steps = ""
@@ -115,7 +118,7 @@ stepList.each { spec ->
 
 task core_rng(type: JavaExec) {
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
   args = ["src/main/schema/core30.rnc", "build/core30.rng"]
   doFirst {
     mkdir("build")
@@ -145,7 +148,7 @@ task xproc30_rnc(dependsOn: [ "xproc30_rng" ], type: JavaExec) {
   inputs.file "build/xproc30.rng"
   outputs.file "build/xproc30.rnc"
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
   args = ["build/xproc30.rng", "build/xproc30.rnc"]
   doFirst {
     mkdir("build")
@@ -170,21 +173,21 @@ task xproc_rnc(type: Copy) {
   }
 }
 
-task xproc10_rng(dependsOn: [ "xproc10_rnc" ], type: JavaExec) {
+task xproc10_rng(dependsOn: [ "xproc10_rnc", "xproc_rnc" ], type: JavaExec) {
   inputs.file "build/xproc10.rnc"
   outputs.file "build/xproc10.rng"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
   args = ["build/xproc10.rnc", "build/xproc10.rng"]
 }
 
-task xproc_rng(dependsOn: [ "xproc_rnc" ], type: JavaExec) {
+task xproc_rng(dependsOn: [ "xproc10_rnc", "xproc_rnc" ], type: JavaExec) {
   inputs.file "build/xproc.rnc"
   outputs.file "build/xproc.rng"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.translate.Driver'
+  mainClass = 'com.thaiopensource.relaxng.translate.Driver'
   args = ["build/xproc.rnc", "build/xproc.rng"]
 }
 
@@ -193,7 +196,7 @@ task xproc_schemas(dependsOn: [ "xproc30_rnc", "xproc30_rng", "xproc10_rng", "xp
   inputs.file "tools/xpl/smoke-test.xpl"
 
   classpath = configurations.tools
-  main = 'com.thaiopensource.relaxng.util.Driver'
+  mainClass = 'com.thaiopensource.relaxng.util.Driver'
   args = ["-i", "-c", "build/xproc.rnc", "tools/xpl/smoke-test.xpl" ]
 }
 
