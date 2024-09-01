@@ -87,4 +87,4 @@ jobs:
           folder: build/dist/3.1
           token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
-          target-folder: /xproc-3.0
+          target-folder: /xproc-3.1
